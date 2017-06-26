@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  ais-data-fetcher:
+    image: kenguru33/ais-data-fetcher:latest
+    environment:
+      - URL=http://ais.rs.no/aktive_pos.json
+    depends_on:
+      - rabbitmq
+    networks:
+      - aisnet
+  rabbitmq:
+    image: rabbitmq
+    networks:
+      - aisnet
+networks:
+  aisnet:
+    driver: bridge
