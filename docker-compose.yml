@@ -1,7 +1,7 @@
 version: '3'
 
 services:
-  ais-data-fetcher:
+  ais-data-fetcher-1:
     image: kenguru33/ais-data-fetcher:latest
     environment:
       - URL=http://ais.rs.no/aktive_pos.json

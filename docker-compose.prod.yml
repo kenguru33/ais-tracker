@@ -1,0 +1,11 @@
+version: '3'
+services:
+  ais-data-fetcher-2:
+    image: kenguru33/ais-data-fetcher:latest
+    deploy:
+      mode: replicated
+      replicas: 1
+    environment:
+      - URL=http://ais.rs.no/aktive.json
+    depends_on:
+      - rabbitmq
