@@ -9,3 +9,8 @@ services:
       - URL=http://ais.rs.no/aktive.json
     depends_on:
       - rabbitmq
+  message-bus:
+    image: rabbitmq:latest
+    deploy:
+      mode: replicated
+      replicas: 1
