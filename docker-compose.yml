@@ -1,5 +1,4 @@
-version: '3'
-
+version: '3.1'
 services:
   viz:
     image: dockersamples/visualizer:latest
@@ -20,13 +19,13 @@ services:
     networks:
       - aisnet
   ais-data-fetcher-2:
-      image: kenguru33/ais-data-fetcher:latest
-      environment:
-        - URL=http://ais.rs.no/aktive_pos.json
-      depends_on:
-        - message-bus
-      networks:
-        - aisnet
+    image: kenguru33/ais-data-fetcher:latest
+    environment:
+      - URL=http://ais.rs.no/aktive.json
+    depends_on:
+      - message-bus
+    networks:
+      - aisnet
   message-bus:
     image: rabbitmq:3-management
     ports:
